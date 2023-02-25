@@ -69,7 +69,7 @@ var tst4 = class test4 {
 var lq = require("log-queue"),
   log = new lq({
     exclude_logMsg: ["debug"],   /* example ["debug", "info"] */
-  }),
+  }).init({appender: "console"}),
   a_resolve, a_reject,
   promise = new Promise((resolve, reject) => {
     a_resolve = resolve
@@ -84,12 +84,11 @@ var lq = require("log-queue"),
     reject: a_reject
   }).load({
     appender: "all",
-    exclude_logMsg: ["debug"],   /* example ["debug", "info"] */
     process_objects: [tst1, tst2, tst3, tst4]
   }).process()
 
 promise.then((success) => {
-  log.logMsg({ msg: `All object processed successfully` })
+  log.logMsg({ msg: `All object processed successfully`.success.italic.bold, type: "success" })
 }, (error) => {
   if (typeof error == "string") {
     log.logMsg({ msg: `error: ${error}`.error.italic.bold, type: "error" })
