@@ -132,7 +132,7 @@ exports = module.exports = class base {
     }
 
     get_exclude_names() {
-        return this.exclude_status
+        return this.exclude_names
     }
 
     init(props = {}) {

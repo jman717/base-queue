@@ -50,14 +50,6 @@ exports = module.exports = class version extends base {
 				dat = { props: { id: (i + 1), log: t.parent.logMsg } }
 				obj = t.get_objects_to_process()[i]
 				t.common_code.init({ obj: obj, dat: dat })
-
-				// is = t.get_include_version()   jrm debug 2/23
-				// obj_a = new obj(dat.props)
-				// if (typeof obj_a != "undefined" &&
-				// 	typeof obj_a.version != "undefined" &&
-				// 	is.indexOf(obj_a.version) > -1) {
-				// 	t.main_process_objects.push(new obj(dat.props))
-				// }
 			})
 
 			super.init(props)

@@ -18,5 +18,6 @@ General Setup Test
 ---------
 ```
 npm run test_base
+npm run json_base
 
 ```

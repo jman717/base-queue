@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bundleDependencies": [],
   "dependencies": {
     "chai": "^4.3.7",
@@ -21,7 +21,8 @@ const packageMock = {
     "start": "node app.ts",
     "test": "mocha",
     "ditched": "ditched -a",
-    "test_base": "node ./tests/base"
+    "test_base": "node ./tests/base",
+    "json_base": "node ./tests/json"
   },
   "keywords": [
     "queue",
