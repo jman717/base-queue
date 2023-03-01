@@ -36,7 +36,7 @@ exports = module.exports = class json_name extends base {
 			return t
 		} catch (e) {
 			e.message = `${fname} error: ${e.message})`
-			t.parent.logMsg({msg: e.message.error, type: "error"})
+			t.parent.logMsg({ msg: e.message.error, type: "error" })
 			throw e
 			// t.parent.app_reject(`${fname} error: ${e.message})`)
 		}
@@ -57,7 +57,13 @@ exports = module.exports = class json_name extends base {
 					dat.props.log = t.parent.logMsg
 					dat.props.relative_path = t.relative_path
 					obj = t.get_objects_to_process()[0]
-					t.common_code.init({ obj: obj, dat: dat })
+					is = t.get_include_status()
+					obj_a = new obj(dat.props)
+					if (typeof obj_a != "undefined" &&
+						typeof obj_a.name != "undefined" &&
+						is.indexOf(obj_a.name) > -1) {
+						t.main_process_objects.push(new obj(dat.props))
+					}
 				})
 			} catch (e) {
 				e.message = `${fname} error: ${e.message}`
