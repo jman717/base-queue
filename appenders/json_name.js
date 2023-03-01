@@ -57,7 +57,7 @@ exports = module.exports = class json_name extends base {
 					dat.props.log = t.parent.logMsg
 					dat.props.relative_path = t.relative_path
 					obj = t.get_objects_to_process()[0]
-					is = t.get_include_status()
+					is = t.get_include_names()
 					obj_a = new obj(dat.props)
 					if (typeof obj_a != "undefined" &&
 						typeof obj_a.name != "undefined" &&
