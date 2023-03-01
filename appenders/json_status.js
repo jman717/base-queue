@@ -13,6 +13,13 @@ exports = module.exports = class json_status extends base {
 		try {
 			t.aname = 'json_status'
 			t.main_process_objects = []
+			t.common_code = new common_code({
+				parent: t,
+				log: t.parent.logMsg,
+				include_func: t.get_include_status,
+				exclude_func: t.get_exclude_status,
+				by_what: t.aname
+			})
 
 			if (typeof props.data_to_process_array == 'undefined')
 				throw new Error(`props.data_to_process_array not defined`)
