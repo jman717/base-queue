@@ -19,7 +19,7 @@ exports = module.exports = class json_name extends base {
 				log: t.parent.logMsg,
 				include_func: t.get_include_names,
 				exclude_func: t.get_exclude_names,
-				by_what: t.aname
+				by_what: "name"
 			})
 
 			if (typeof props.data_to_process_array == 'undefined')
@@ -57,13 +57,7 @@ exports = module.exports = class json_name extends base {
 					dat.props.log = t.parent.logMsg
 					dat.props.relative_path = t.relative_path
 					obj = t.get_objects_to_process()[0]
-					is = t.get_include_names()
-					obj_a = new obj(dat.props)
-					if (typeof obj_a != "undefined" &&
-						typeof obj_a.name != "undefined" &&
-						is.indexOf(obj_a.name) > -1) {
-						t.main_process_objects.push(new obj(dat.props))
-					}
+					t.common_code.init({ obj: obj, dat: dat })
 				})
 			} catch (e) {
 				e.message = `${fname} error: ${e.message}`

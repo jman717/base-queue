@@ -36,7 +36,7 @@ exports = module.exports = class common_code {
                 if (typeof obj_a != "undefined" &&
                     typeof eval(`obj_a.${t.by_what}`) != "undefined" &&
                     is.indexOf(eval(`obj_a.${t.by_what}`)) > -1) {
-                    t.parent.main_process_objects.push(new obj(dat.props))
+                        t.parent.main_process_objects.push(new obj(dat.props))
                 }
             }
             if (typeof xis != "undefined") {

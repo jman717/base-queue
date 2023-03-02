@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "1.0.7",
+  "version": "2.0.0",
   "bundleDependencies": [],
   "dependencies": {
     "chai": "^4.3.7",
@@ -22,7 +22,13 @@ const packageMock = {
     "test": "mocha",
     "ditched": "ditched -a",
     "test_base": "node ./tests/base",
-    "json_base": "node ./tests/json"
+    "json_base": "node ./tests/json",
+    "json_version_matching": "node ./tests/json_version",
+    "json_version_non_matching": "node ./tests/json_version_non_matching",
+    "json_name_matching": "node ./tests/json_name",
+    "json_name_non_matching": "node ./tests/json_name_non_matching",
+    "json_status_matching": "node ./tests/json_status",
+    "json_status_non_matching": "node ./tests/json_status_non_matching"
   },
   "keywords": [
     "queue",

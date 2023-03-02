@@ -4,7 +4,8 @@
 * json_status.js
 */
 
-var base = require('./base.js')
+var base = require('./base.js'),
+	common_code = require('./common_code.js')
 
 exports = module.exports = class json_status extends base {
 	constructor(props) {
@@ -18,7 +19,7 @@ exports = module.exports = class json_status extends base {
 				log: t.parent.logMsg,
 				include_func: t.get_include_status,
 				exclude_func: t.get_exclude_status,
-				by_what: t.aname
+				by_what: "status"
 			})
 
 			if (typeof props.data_to_process_array == 'undefined')
@@ -42,7 +43,8 @@ exports = module.exports = class json_status extends base {
 
 	init(props = {}) {
 		var t = this, fname = `json_status.init`, obj, is, obj_a
-		try {``
+		try {
+			``
 			t.parent.logMsg({ msg: `${fname}`.debug, type: "debug" })
 
 			if (typeof t.get_objects_to_process()[0] == "undefined")
@@ -54,17 +56,11 @@ exports = module.exports = class json_status extends base {
 					dat.props.log = t.parent.logMsg
 					dat.props.relative_path = t.relative_path
 					obj = t.get_objects_to_process()[0]
-					is = t.get_include_status()
-					obj_a = new obj(dat.props)
-					if (typeof obj_a != "undefined" &&
-						typeof obj_a.status != "undefined" &&
-						is.indexOf(obj_a.status) > -1) {
-						t.main_process_objects.push(new obj(dat.props))
-					}
+					t.common_code.init({ obj: obj, dat: dat })
 				})
 			} catch (e) {
 				e.message = `${fname} error: ${e.message}`
-				t.parent.logMsg({msg: e.message.error, type: "error"})
+				t.parent.logMsg({ msg: e.message.error, type: "error" })
 				throw e
 			}
 
@@ -80,7 +76,7 @@ exports = module.exports = class json_status extends base {
 	process(props = {}) {
 		var t = this, fname = `json_status.process`
 		try {
-			t.parent.logMsg({msg: `${fname} length(${t.main_process_objects.length})`.debug, type: "debug"})
+			t.parent.logMsg({ msg: `${fname} length(${t.main_process_objects.length})`.debug, type: "debug" })
 
 			super.process(props)
 			return t
