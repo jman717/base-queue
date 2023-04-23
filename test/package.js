@@ -6,14 +6,14 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "2.0.0",
+  "version": "3.0.0",
   "bundleDependencies": [],
   "dependencies": {
     "chai": "^4.3.7",
     "colors": "^1.4.0",
     "diffler": "^2.0.4",
     "fs": "^0.0.1-security",
-    "log-queue": "^2.1.0",
+    "log-queue": "^3.0.0",
     "mocha": "^10.2.0",
     "valid-path": "^2.1.0"
   },
@@ -23,6 +23,8 @@ const packageMock = {
     "ditched": "ditched -a",
     "test_base": "node ./tests/base",
     "json_base": "node ./tests/json",
+    "http_base": "node ./tests/http_base",
+    "http_json_base": "node ./tests/http_json",
     "json_version_matching": "node ./tests/json_version",
     "json_version_non_matching": "node ./tests/json_version_non_matching",
     "json_name_matching": "node ./tests/json_name",
@@ -53,6 +55,7 @@ const packageMock = {
   "name": "base-queue",
   "start": "node app.js"
 }
+
 
 describe('package.json', function () {
     it('should pass', function () {

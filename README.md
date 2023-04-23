@@ -19,5 +19,13 @@ General Setup Test
 ```
 npm run test_base
 npm run json_base
+npm run http_base
+npm run http_json_base
+npm run json_version_matching
+npm run json_version_non_matching
+npm run json_name_matching
+npm run json_name_non_matching
+npm run json_status_matching
+npm run json_status_non_matching
 
 ```
