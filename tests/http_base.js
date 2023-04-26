@@ -68,8 +68,8 @@ var tst4 = class test4 {
 
 var lq = require("log-queue"),
   log = new lq({
-    exclude_logMsg: ["debug"],   /* example ["debug", "info"] */
-  }).init({appender: "http", hostname: "127.0.0.1", port: 3001}),
+    exclude_logMsg: ["debug"],   /* example ["debug", "info", "error"] */
+  }).init({ appender: "http", hostname: "127.0.0.1", port: 3001 }),
   a_resolve, a_reject,
   promise = new Promise((resolve, reject) => {
     a_resolve = resolve
@@ -89,6 +89,7 @@ var lq = require("log-queue"),
 
 promise.then((success) => {
   log.logMsg({ msg: `All object processed successfully`.success.italic.bold, type: "success" })
+  log.server()
 }, (error) => {
   if (typeof error == "string") {
     log.logMsg({ msg: `error: ${error}`.error.italic.bold, type: "error" })
@@ -96,6 +97,5 @@ promise.then((success) => {
     let add_s = (error.error_count > 1) ? 's' : ''
     log.logMsg({ msg: `${error.error_count} error${add_s} detected`.error.italic.bold, type: "error" })
   }
+  log.server()
 })
-
-log.server()

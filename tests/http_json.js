@@ -101,7 +101,6 @@ var lq = require("log-queue"),
     reject: a_reject
   }).load({
     appender: "json_all",
-    exclude_logMsg: ["debug", "silly", "info"],   /* default [] */
     process_objects: [file_object],
     data_to_process_array: file_data
   }).process()
