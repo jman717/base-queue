@@ -8,12 +8,6 @@
 
 Base appenders for various queueing processes.
 
-Mocha Test
----------
-```
-npm test
-```
-
 General Setup Test
 ---------
 ```
@@ -27,5 +21,4 @@ npm run json_name_matching
 npm run json_name_non_matching
 npm run json_status_matching
 npm run json_status_non_matching
-
 ```
