@@ -2,17 +2,14 @@
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.5",
+  "version": "3.0.6",
   "bundleDependencies": [],
   "dependencies": {
     "colors": "^1.4.0",
-    "fs": "^0.0.1-security",
-    "log-queue": "^3.0.7",
-    "valid-path": "^2.1.0"
+    "log-queue": "^3.0.8"
   },
   "scripts": {
     "start": "node app.ts",
-    "ditched": "ditched -a",
     "test_base": "node ./tests/base",
     "json_base": "node ./tests/json",
     "http_base": "node ./tests/http_base",
