@@ -1,4 +1,3 @@
-
 /*
 * @author Jim Manton: jrman@risebroadband.net
 * @since 2023-02-02
@@ -86,10 +85,14 @@ exports = module.exports = class BaseQueue {
                         t.reported = true
                         res = t.appender.get_results_array()
                         res.map((json, i) => {
-                            if (typeof json.success != "undefined")
-                                t.logMsg({ msg: `${JSON.stringify(json.success)}`.success, type: 'success' })
+
+                            if (typeof json.success != "undefined") {
+                                json.success.type = 'success'
+                                t.logMsg(json.success)
+                            }
                             if (typeof json.error != "undefined") {
-                                t.logMsg({ msg: `${JSON.stringify(json.error)}`.error, type: 'error' })
+                                json.error.type = 'error'
+                                t.logMsg(json.error)
                                 error_count++
                             }
                         })
