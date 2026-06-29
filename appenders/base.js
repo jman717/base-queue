@@ -27,6 +27,9 @@ exports = module.exports = class base {
             if (typeof props.appender == 'undefined')
                 throw new Error(`appender not defined)`)
 
+            if (typeof props.tagline == 'object')
+                t.tagline = props.tagline
+
             t.appender = props.appender
             t.data_to_process_array = props.data_to_process_array
             t.objects_to_process = props.process_objects
