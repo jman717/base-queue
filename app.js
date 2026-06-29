@@ -16,6 +16,9 @@ exports = module.exports = class BaseQueue {
             t.process = t.process.bind(t)
             t.process_count = 0
             t.reported = false
+            
+            if (typeof props.tagline != 'undefined')        
+                t.tagline = props.tagline
 
             if (typeof props.parent == 'undefined') {
                 console.log(`${fname}: props.parent not defined`)
